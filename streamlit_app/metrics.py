@@ -8,8 +8,11 @@ import pandas as pd
 from scipy import stats
 
 
+from pathlib import Path
+
 def load_cleaned_data(path="cleaned_data.csv"):
-    return pd.read_csv(path, parse_dates=["date"])
+    file_path = Path(__file__).parent / path
+    return pd.read_csv(file_path, parse_dates=["date"])
 
 
 def compute_kpis(df: pd.DataFrame) -> pd.DataFrame:
